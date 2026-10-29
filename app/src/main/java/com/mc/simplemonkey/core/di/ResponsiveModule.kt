@@ -1,0 +1,19 @@
+//package com.mc.simplemonkey.core.di
+//
+//import dagger.Binds
+//import dagger.Module
+//import dagger.hilt.InstallIn
+//import dagger.hilt.components.SingletonComponent
+//
+//@Module
+//@InstallIn(SingletonComponent::class)
+//abstract class RepositoryModule {
+//
+//    @Binds
+//    abstract fun bindSimpleMobileRepository(impl: SimpleMobileRepositoryImpl): SimpleMobileRepository
+//
+//    @Binds
+//    abstract fun bindSimplePhoneSpecRepository(impl: SimplePhoneSpecRepositoryImpl): SimplePhoneSpecRepository
+//
+//
+//}

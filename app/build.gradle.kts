@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
-
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.serialization)
@@ -67,4 +66,11 @@ dependencies {
     implementation("com.squareup.picasso:picasso:2.8")
     implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.8")
     implementation(libs.kotlinx.serialization.json)
+
+
+    //core
+    implementation(project(":core:network"))
+    implementation(project(":core:designsystem"))
+
+
 }

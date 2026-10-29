@@ -24,3 +24,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Simple Monkey"
 include(":app")
+
+include(":core:network")
+include(":core:designsystem")
