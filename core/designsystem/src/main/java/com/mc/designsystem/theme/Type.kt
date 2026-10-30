@@ -19,6 +19,7 @@ data class MonkeyTypoGraphy(
     val header: TextStyle,
     val title: TextStyle,
     val subTitle: TextStyle,
+    val subBody: TextStyle,
     val body: TextStyle,
     val label: TextStyle,
     val caption: TextStyle,
@@ -26,7 +27,6 @@ data class MonkeyTypoGraphy(
     val buttonMedium: TextStyle,
     val buttonSmall: TextStyle,
 )
-
 val DefaultTypography = MonkeyTypoGraphy(
     display = TextStyle(
         fontFamily = FontFamily.Default,
@@ -48,17 +48,24 @@ val DefaultTypography = MonkeyTypoGraphy(
 
     subTitle = TextStyle(
         fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Medium,
+        fontSize = 18.sp
+    ),
+
+
+    body = TextStyle(
+        fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         lineHeight = 24.sp
     ),
 
-    body = TextStyle(
+    subBody = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
-        fontSize = 14.sp,
-        lineHeight = 20.sp
+        fontSize = 16.sp,
     ),
+
 
     label = TextStyle(
         fontFamily = FontFamily.Default,
@@ -93,73 +100,137 @@ val DefaultTypography = MonkeyTypoGraphy(
 
     )
 
-val LocalSimpleMonkeyTypography = staticCompositionLocalOf {
-    DefaultTypography
-}
+val TabletTypography = MonkeyTypoGraphy(
+    display = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Bold,
+        fontSize = 40.sp
+    ),
+    header = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Bold,
+        fontSize = 32.sp
+    ),
+    title = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 26.sp
+    ),
 
-@Composable
-fun rememberMonkeyTypography(ds: MonkeySize): MonkeyTypoGraphy {
-    val density = LocalDensity.current
-    return remember(ds, density) {
-        with(density) {
-            MonkeyTypoGraphy(
-                display = TextStyle(
-                    fontFamily = FontFamily.Default,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = ds.fontDisplay.toSp()
-                ),
-                header = TextStyle(
-                    fontFamily = FontFamily.Default,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = ds.fontHeader.toSp()
-                ),
-                title = TextStyle(
-                    fontFamily = FontFamily.Default,
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = ds.fontTitle.toSp()
-                ),
-                subTitle = TextStyle(
-                    fontFamily = FontFamily.Default,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = ds.fontSubTitle.toSp(),
-                    lineHeight = (ds.fontSubTitle * 1.4f).toSp()
-                ),
-                body = TextStyle(
-                    fontFamily = FontFamily.Default,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = ds.fontBody.toSp(),
-                    lineHeight = (ds.fontBody * 1.4f).toSp()
-                ),
-                label = TextStyle(
-                    fontFamily = FontFamily.Default,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = ds.fontLabel.toSp()
-                ),
-                caption = TextStyle(
-                    fontFamily = FontFamily.Default,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = ds.fontCaption.toSp()
-                ),
-                buttonLarge = TextStyle(
-                    fontFamily = FontFamily.Default,
-                    fontWeight = FontWeight.Medium,
-                    fontSize = ds.fontButtonLarge.toSp()
-                ),
-                buttonMedium = TextStyle(
-                    fontFamily = FontFamily.Default,
-                    fontWeight = FontWeight.Medium,
-                    fontSize = ds.fontButtonMedium.toSp()
-                ),
-                buttonSmall = TextStyle(
-                    fontFamily = FontFamily.Default,
-                    fontWeight = FontWeight.Medium,
-                    fontSize = ds.fontButtonSmall.toSp()
-                ),
-            )
-        }
-    }
-}
+    subTitle = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Medium,
+        fontSize = 20.sp
+    ),
+
+    body = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 18.sp,
+        lineHeight = 26.sp
+    ),
+
+    subBody = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 18.sp
+    ),
+
+    label = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp
+    ),
+    caption = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp
+    ),
+    buttonLarge = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Bold,
+        fontSize = 18.sp
+    ),
+    buttonMedium = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Bold,
+        fontSize = 18.sp
+    ),
+    buttonSmall = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Bold,
+        fontSize = 18.sp
+    ),
+)
+
 
 val LocalMonkeyTypography = staticCompositionLocalOf<MonkeyTypoGraphy> {
-    error("MonkeyTypography not provided")
+    DefaultTypography
 }
+//
+//@Composable
+//fun rememberMonkeyTypography(ds: MonkeySize): MonkeyTypoGraphy {
+//    val density = LocalDensity.current
+//    return remember(ds, density) {
+//        with(density) {
+//            MonkeyTypoGraphy(
+//                display = TextStyle(
+//                    fontFamily = FontFamily.Default,
+//                    fontWeight = FontWeight.Bold,
+//                    fontSize = ds.fontDisplay.toSp()
+//                ),
+//                header = TextStyle(
+//                    fontFamily = FontFamily.Default,
+//                    fontWeight = FontWeight.Bold,
+//                    fontSize = ds.fontHeader.toSp()
+//                ),
+//                title = TextStyle(
+//                    fontFamily = FontFamily.Default,
+//                    fontWeight = FontWeight.SemiBold,
+//                    fontSize = ds.fontTitle.toSp()
+//                ),
+//                subTitle = TextStyle(
+//                    fontFamily = FontFamily.Default,
+//                    fontWeight = FontWeight.Normal,
+//                    fontSize = ds.fontSubTitle.toSp(),
+//                    lineHeight = (ds.fontSubTitle * 1.4f).toSp()
+//                ),
+//                body = TextStyle(
+//                    fontFamily = FontFamily.Default,
+//                    fontWeight = FontWeight.Normal,
+//                    fontSize = ds.fontBody.toSp(),
+//                    lineHeight = (ds.fontBody * 1.4f).toSp()
+//                ),
+//                label = TextStyle(
+//                    fontFamily = FontFamily.Default,
+//                    fontWeight = FontWeight.Normal,
+//                    fontSize = ds.fontLabel.toSp()
+//                ),
+//                caption = TextStyle(
+//                    fontFamily = FontFamily.Default,
+//                    fontWeight = FontWeight.Normal,
+//                    fontSize = ds.fontCaption.toSp()
+//                ),
+//                buttonLarge = TextStyle(
+//                    fontFamily = FontFamily.Default,
+//                    fontWeight = FontWeight.Medium,
+//                    fontSize = ds.fontButtonLarge.toSp()
+//                ),
+//                buttonMedium = TextStyle(
+//                    fontFamily = FontFamily.Default,
+//                    fontWeight = FontWeight.Medium,
+//                    fontSize = ds.fontButtonMedium.toSp()
+//                ),
+//                buttonSmall = TextStyle(
+//                    fontFamily = FontFamily.Default,
+//                    fontWeight = FontWeight.Medium,
+//                    fontSize = ds.fontButtonSmall.toSp()
+//                ),
+//            )
+//        }
+//    }
+//}
+//
+//val LocalMonkeyTypography = staticCompositionLocalOf<MonkeyTypoGraphy> {
+//    error("MonkeyTypography not provided")
+//}

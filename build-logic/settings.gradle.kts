@@ -1,15 +1,16 @@
+//enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
     }
-    versionCatalogs{
-        create("libs"){
-            // 작성한 버전 카탈로그 toml 파일을 가져와준다
+    versionCatalogs {
+        create("libs") {
             from(files("../gradle/libs.versions.toml"))
         }
     }
 }
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-rootProject.name = "build-logic"
+
+rootProject.name = "build-logic-convention"
 include(":convention")

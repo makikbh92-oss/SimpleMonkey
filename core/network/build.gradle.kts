@@ -1,10 +1,18 @@
 plugins {
-    alias(libs.plugins.jetbrains.kotlin.jvm)
-    alias(libs.plugins.ksp)
+
+    id("mc.simplemonkey.android.library")
+    id("mc.simplemonkey.android.hilt")
+    id("mc.simplemonkey.android.ok")
+
+
 }
 
-kotlin {
-    jvmToolchain(17)
+android {
+    namespace = "com.mc.simplemonkey.core.network"
+
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {

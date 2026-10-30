@@ -1,6 +1,6 @@
 import com.android.build.api.dsl.LibraryExtension
-import com.skydoves.pokedex.compose.configureAndroidCompose
-import com.skydoves.pokedex.compose.configureKotlinAndroid
+import com.mc.convention.configureAndroidCompose
+import com.mc.convention.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension

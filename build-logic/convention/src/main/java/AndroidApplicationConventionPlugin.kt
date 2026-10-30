@@ -1,5 +1,5 @@
 import com.android.build.api.dsl.ApplicationExtension
-import com.skydoves.pokedex.compose.configureKotlinAndroid
+import com.mc.convention.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -15,7 +15,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 
       extensions.configure<ApplicationExtension> {
         configureKotlinAndroid(this)
-        defaultConfig.targetSdk = 36
+        defaultConfig.targetSdk = 37
       }
 
       extensions.getByType<KotlinAndroidProjectExtension>().apply {

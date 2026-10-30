@@ -1,5 +1,5 @@
 import com.android.build.api.dsl.LibraryExtension
-import com.skydoves.pokedex.compose.configureAndroidCompose
+import com.mc.convention.configureAndroidCompose
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
@@ -8,7 +8,7 @@ class AndroidLibraryComposeConventionPlugin : Plugin<Project> {
   override fun apply(target: Project) {
     with(target) {
       pluginManager.apply("com.android.library")
-      pluginManager.apply("com.github.skydoves.compose.stability.analyzer")
+//      pluginManager.apply("com.github.skydoves.compose.stability.analyzer")
       val extension = extensions.getByType<LibraryExtension>()
       configureAndroidCompose(extension)
     }

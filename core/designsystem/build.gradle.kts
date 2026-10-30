@@ -1,22 +1,11 @@
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.compose)
+    id("mc.simplemonkey.android.library")
+    id("mc.simplemonkey.android.library.compose")
+
 }
 
 android {
     namespace = "com.mc.simplemonkey.compose.designsystem"
-    compileSdk {
-        version = release(37)
-    }
-
-
-    defaultConfig {
-        minSdk = 24
-    }
-
-    buildFeatures {
-        compose = true
-    }
 }
 
 dependencies {

@@ -2,22 +2,29 @@ package com.mc.designsystem.theme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-
-
+import androidx.compose.ui.platform.LocalConfiguration
 
 
 @Composable
 fun MonkeyTheme(
     colors: MonkeyColors = DefaultColorPalette,
-    size: MonkeySize = rememberDsSize(),
-    typography: MonkeyTypoGraphy = rememberMonkeyTypography(size),
+    spacing: MonkeySpacing = if (LocalConfiguration.current.screenWidthDp >= 600) {
+        TabletSpacing
+    } else {
+        DefaultSpacing
+    },
+    typography:  MonkeyTypoGraphy = if (LocalConfiguration.current.screenWidthDp >= 600) {
+        TabletTypography
+    } else {
+        DefaultTypography
+    },
     content: @Composable () -> Unit
 )   {
 
     CompositionLocalProvider(
         LocalSimpleMonkeyColors provides colors,
         LocalMonkeyTypography provides typography,
-        LocalMonkeySize provides size
+        LocalMonkeySpacing provides spacing
     ){
         content()
     }
@@ -33,8 +40,8 @@ object AppTheme {
         get() = LocalMonkeyTypography.current
 
 
-    val size
+    val spacing
         @Composable
-        get() = LocalMonkeySize.current
+        get() = LocalMonkeySpacing.current
 
 }
