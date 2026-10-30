@@ -1,4 +1,6 @@
+
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -23,7 +25,9 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Simple Monkey"
-include(":app")
 
+include(":app")
 include(":core:network")
 include(":core:designsystem")
+include(":feature:home")
+
